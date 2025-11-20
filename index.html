@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="mn" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amjilt LMS</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        }
+                    },
+                    animation: {
+                        'infinite-scroll': 'infinite-scroll 20s linear infinite', // Хурдыг эндээс тохируулна (20s)
+                    },
+                    keyframes: {
+                        'infinite-scroll': {
+                            from: {
+                                transform: 'translateX(0)'
+                            },
+                            to: {
+                                transform: 'translateX(-50%)'
+                            }, // ЭНЭ ЧУХАЛ: Яг тал хүртэл нь гүйлгэнэ
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @keyframes blob-slow {
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+        }
+        
+        @keyframes blob-medium {
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(-30px, 30px) scale(0.9);
+            }
+            66% {
+                transform: translate(20px, -20px) scale(1.1);
+            }
+        }
+        
+        .animate-blob-slow {
+            animation: blob-slow 10s infinite ease-in-out;
+        }
+        
+        .animate-blob-medium {
+            animation: blob-medium 7s infinite ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-slate-900 bg-white dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 antialiased selection:bg-primary-500 selection:text-white">
+
+    <!-- COMPONENT: NAVBAR -->
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 glass-nav backdrop-blur-md bg-white/70 dark:bg-slate-950/70 border-b border-slate-200/50 dark:border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                    <img class="w-24 h-24 object-contain" src="./assets/logo (2).png" alt="Logo">
+                </div>
+
+                <div class="hidden md:flex items-center space-x-6">
+
+                    <a href="help.html" class="flex items-center gap-1.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg> Тусламж
+                    </a>
+
+                    <div class="relative group">
+                        <button class="flex items-center gap-1.5 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-700 dark:text-slate-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-semibold">MN</span>
+                        <svg class="w-3 h-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+
+                        <div class="absolute right-0 mt-2 w-32 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 transform opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 origin-top-right invisible group-hover:visible">
+                            <div class="py-1">
+                                <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-primary-600 bg-slate-50 dark:bg-slate-800 dark:text-white font-medium">
+                                    <span>🇲🇳</span> Монгол
+                                </a>
+                                <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                    <span>🇺🇸</span> English
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="theme-toggle" aria-label="Toggle Dark Mode" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-700 dark:text-slate-200">
+                    <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <svg id="moon-icon" class="w-5 h-5 block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                </button>
+
+                    <button onclick="document.getElementById('login-modal').showModal()" class="px-5 py-2.5 text-sm font-semibold text-white bg-primary-600 rounded-full hover:bg-primary-700 transition-all shadow-lg shadow-primary-500/30 focus:ring-4 focus:ring-primary-500/20 hover:scale-105 transform">
+                    Нэвтрэх
+                </button>
+                </div>
+
+                <div class="md:hidden flex items-center gap-4">
+                    <button id="mobile-theme-toggle" class="p-2 text-slate-600 dark:text-slate-300">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                </button>
+                    <button id="menu-btn" aria-label="Open Menu" class="text-slate-700 dark:text-slate-200 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-xl">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="#features" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Features</a>
+                <a href="#roles" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Roles</a>
+                <a href="#app" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Mobile App</a>
+
+                <a href="documentation.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>                    Тусламж
+                </a>
+
+                <a href="#faq" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">FAQ</a>
+
+                <div class="border-t border-slate-100 dark:border-slate-800 my-2 pt-2">
+                    <p class="px-3 text-xs font-semibold text-slate-400 uppercase mb-1">Хэл сонгох</p>
+                    <div class="flex gap-2 px-3">
+                        <button class="flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-md bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 text-sm font-medium border border-primary-100 dark:border-primary-800">
+                        🇲🇳 Монгол
+                    </button>
+                        <button class="flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm font-medium border border-transparent">
+                        🇺🇸 English
+                    </button>
+                    </div>
+                </div>
+
+                <button onclick="document.getElementById('login-modal').showModal()" class="w-full text-center block mt-4 px-3 py-3 rounded-lg text-base font-bold text-white bg-primary-600 hover:bg-primary-700 shadow-md">
+                Нэвтрэх
+            </button>
+            </div>
+        </div>
+    </header>
+    <main class="pt-20 overflow-hidden">
+        <!-- COMPONENT: HERO -->
+        <section class="relative min-h-[90vh] flex items-center">
+            <!-- Background decoration -->
+            <div class="absolute inset-0 -z-10 overflow-hidden bg-slate-50 dark:bg-[#0B1120] transition-colors duration-300">
+
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-gradient-to-b from-purple-100/50 via-indigo-50/30 to-transparent dark:from-purple-900/20 dark:via-[#0B1120] dark:to-transparent blur-3xl"></div>
+
+                <svg class="absolute inset-0 w-full h-full [mask-image:radial-gradient(100%_100%_at_top_center,white,transparent)]" aria-hidden="true">
+                <defs>
+                    <pattern id="micro-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M0 40L0 0L40 0" fill="none" stroke="currentColor" stroke-width="1" class="text-slate-900/5 dark:text-white/5"></path>
+                    </pattern>
+                    <pattern id="macro-grid" width="200" height="200" patternUnits="userSpaceOnUse" x="50%" y="-1">
+                        <rect width="100%" height="100%" fill="url(#micro-grid)"></rect>
+                        <path d="M200 0L0 0L0 200" fill="none" stroke="currentColor" stroke-width="1" class="text-slate-900/10 dark:text-white/10"></path>
+                    </pattern>
+                </defs>
+                
+                <rect width="100%" height="100%" stroke-width="0" fill="url(#macro-grid)"></rect>
+                
+                <svg x="50%" y="-1" class="overflow-visible">
+                    <rect width="39" height="39" x="40" y="40" fill="currentColor" class="text-purple-500/10 dark:text-purple-500/20"></rect>
+                    <rect width="39" height="39" x="240" y="120" fill="currentColor" class="text-indigo-500/10 dark:text-indigo-500/20"></rect>
+                    <rect width="39" height="39" x="-120" y="200" fill="currentColor" class="text-purple-500/10 dark:text-purple-500/20"></rect>
+                    <rect width="39" height="39" x="80" y="320" fill="currentColor" class="text-blue-500/10 dark:text-blue-500/20"></rect>
+                </svg>
+                </svg>
+
+                <div class="absolute top-[10%] right-[5%] w-96 h-96 bg-purple-400/20 dark:bg-purple-600/20 rounded-full blur-[100px] animate-blob-slow mix-blend-multiply dark:mix-blend-screen"></div>
+                <div class="absolute top-[20%] left-[10%] w-72 h-72 bg-blue-400/20 dark:bg-blue-600/20 rounded-full blur-[80px] animate-blob-medium mix-blend-multiply dark:mix-blend-screen"></div>
+
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-0 w-full">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <!-- Text Content -->
+                    <div class="hero-content space-y-8">
+                        <!-- <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 border border-primary-100 dark:border-primary-800">
+                            <span class="relative flex h-2 w-2">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+                            </span>
+                            <span class="text-xs font-semibold tracking-wide uppercase">New v2.0 Released</span>
+                        </div> -->
+
+                        <div class="space-y-8">
+                            <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-slate-900 dark:text-white">
+                                Amjilt <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-purple-600">LMS</span>
+                            </h1>
+
+                            <p class="text-2xl md:text-3xl text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed font-medium">
+                                Сургуулийн удирдлагын цогц систем
+                            </p>
+
+                            <p class="text-slate-600">Amjilt LMS систем нь танай сургуульд туслах, нэг цогц системээр ажиллаа хөнгөвчлөхөд тусална.</p>
+
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <button id="login-btn" href="#" class="group flex items-center justify-center gap-3 px-8 py-4 text-base font-bold text-white bg-primary-600 rounded-xl hover:bg-primary-700 hover:scale-105 transition-all shadow-xl shadow-primary-600/20">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 group-hover:animate-pulse"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>                                    Хэрэглэгч нэвтрэх
+                                </button>
+
+                                <a href="tel:77116060" class="flex items-center justify-center gap-3 px-8 py-4 text-base font-bold text-slate-700 dark:text-white bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-slate-300 transition-all shadow-lg shadow-slate-200/20 dark:shadow-none">
+                                    <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>                                    7711-6060
+                                </a>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <!-- Hero Image -->
+                    <div class="hero-image relative w-full max-w-[500px] mx-auto lg:max-w-none lg:mx-0 mt-12 lg:mt-0 h-[500px] flex items-center justify-center">
+
+                        <div class="absolute inset-0 bg-purple-500/20 dark:bg-purple-900/40 blur-[80px] rounded-full -z-20"></div>
+
+                        <div class="relative z-10 w-[350px] h-[450px] animate-float-slow">
+                            <img src="./assets/hero.jpg" alt="Student Learning" style="object-position: 100% center;" class="w-full h-full object-cover rounded-[40px] shadow-2xl border-4 border-white dark:border-slate-800 mask-image-gradient">
+                            <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-purple-900/50 to-transparent rounded-b-[40px]"></div>
+                        </div>
+
+                        <div class="absolute top-4 -left-8 z-20 animate-float-medium">
+                            <div class="bg-white dark:bg-slate-800 p-3 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 flex items-center gap-3 transform -rotate-6 hover:rotate-0 transition-transform duration-300">
+                                <div class="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/30 rounded-full flex items-center justify-center text-2xl">
+                                    🎓
+                                </div>
+                                <div>
+                                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Зорилго</p>
+                                    <p class="text-sm font-bold text-slate-800 dark:text-white">Төгсөлт</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="absolute bottom-10 -left-12 z-20 animate-float-slow bg-white dark:bg-slate-800 p-3 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 flex items-center gap-3">
+                            <div class="text-4xl">📚</div>
+                            <div>
+                                <p class="text-xs text-slate-500 font-semibold uppercase">Сурах бичиг</p>
+                                <p class="text-sm font-bold text-slate-900 dark:text-white">100+ Ном</p>
+                            </div>
+                        </div>
+
+                        <div class="absolute top-12 -right-8 z-20 animate-float-fast">
+                            <div class="relative bg-white dark:bg-slate-800 w-16 h-16 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 flex items-center justify-center rotate-12 hover:rotate-0 transition-transform">
+                                <div class="text-4xl">✏️</div>
+                                <div class="absolute -top-2 -right-2 w-7 h-7 bg-purple-500 text-white text-sm font-bold rounded-full flex items-center justify-center shadow-md border-2 border-white dark:border-slate-800">
+                                    A+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="absolute top-1/2 -right-14 z-10 animate-float-medium" style="animation-delay: 2s;">
+                            <div class="bg-white/90 dark:bg-slate-800/90 backdrop-blur-md p-3 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 flex items-center gap-3 rotate-12 hover:rotate-0 transition-transform">
+                                <div class="w-10 h-10 bg-yellow-100 dark:bg-yellow-900/30 rounded-full flex items-center justify-center text-2xl">
+                                    🏆
+                                </div>
+                                <div class="hidden md:block">
+                                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Шилдэг</p>
+                                    <p class="text-sm font-bold text-slate-800 dark:text-white">Амжилт</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="absolute bottom-24 -right-10 z-20 animate-float-slow" style="animation-delay: 1.5s;">
+                            <div class="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm p-4 rounded-xl shadow-2xl border-l-4 border-green-500 flex items-center gap-3">
+                                <div class="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center text-green-600">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] text-slate-400 uppercase font-semibold">System</p>
+                                    <p class="font-bold text-slate-800 dark:text-white text-sm">App & Web</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="absolute top-1/3 -left-6 z-10 animate-float-fast" style="animation-delay: 1s;">
+                            <div class="w-12 h-12 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-1">
+                                <img src="./assets/logo (2).png" alt="">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <style>
+                        @keyframes float {
+                            0%,
+                            100% {
+                                transform: translateY(0px) rotate(0deg);
+                            }
+                            50% {
+                                transform: translateY(-15px) rotate(2deg);
+                            }
+                        }
+                        
+                        .animate-float-slow {
+                            animation: float 7s ease-in-out infinite;
+                        }
+                        
+                        .animate-float-medium {
+                            animation: float 5s ease-in-out infinite;
+                            animation-delay: 0.5s;
+                        }
+                        
+                        .animate-float-fast {
+                            animation: float 4s ease-in-out infinite;
+                            animation-delay: 1s;
+                        }
+                        /* Зургийн хүрээг гоё харагдуулах */
+                        
+                        .mask-image-gradient {
+                            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+                            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+                        }
+                    </style>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPONENT: LOGO SLIDER -->
+        <section class="py-12 border-y border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+                <p class="text-center text-sm font-semibold text-slate-500 uppercase tracking-wider">Trusted by industry leaders</p>
+            </div>
+
+            <div class="relative overflow-hidden w-full group">
+
+                <div class="flex w-max gap-16 animate-infinite-scroll hover:[animation-play-state:paused]">
+
+                    <img src="./assets/logo (2).png" alt="Logo" class="h-24 object-contain shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="./assets/logo (2).png" alt="Logo" class="h-24 object-contain shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="./assets/logo (2).png" alt="Logo" class="h-24 object-contain shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="./assets/logo (2).png" alt="Logo" class="h-24 object-contain shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="./assets/logo (2).png" alt="Logo" class="h-24 object-contain shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="./assets/logo (2).png" alt="Logo" class="h-24 object-contain shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+
+                    <img src="./assets/logo (2).png" alt="Logo" class="h-24 object-contain shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="./assets/logo (2).png" alt="Logo" class="h-24 object-contain shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="./assets/logo (2).png" alt="Logo" class="h-24 object-contain shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="./assets/logo (2).png" alt="Logo" class="h-24 object-contain shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="./assets/logo (2).png" alt="Logo" class="h-24 object-contain shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="./assets/logo (2).png" alt="Logo" class="h-24 object-contain shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+
+                </div>
+
+                <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-slate-50 dark:from-slate-900 to-transparent z-10"></div>
+                <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-slate-50 dark:from-slate-900 to-transparent z-10"></div>
+            </div>
+        </section>
+
+        <!-- COMPONENT: FEATURES -->
+        <section id="features" class="py-24 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Everything you need to run your <br><span class="text-primary-600">Knowledge Empire</span></h2>
+                    <p class="text-lg text-slate-600 dark:text-slate-400">Admins get total control. Learners get an intuitive experience. Everyone wins.</p>
+                </div> -->
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="feature-card p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-primary-500 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Цогц систем</h3>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Суралцагч, багш, удирдлагын хэрэгцээг бүрэн хангах олон боломжийг нэг дор агуулсан платформ.
+
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="feature-card p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-primary-500 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-lg bg-purple-100 dark:bg-purple-900/30 text-purple-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Хөгжүүлэлт</h3>
+                        <p class="text-slate-600 dark:text-slate-400 lowercase leading-relaxed">ТЕХНОЛОГИЙН ХӨГЖЛИЙГ ТАСРАЛТГҮЙ ШИНГЭЭЖ, ИЛҮҮ ХЯЛБАР, ИЛҮҮ ХУРДТАЙ СИСТЕМИЙГ ҮРГЭЛЖ САНАЛ БОЛГОНО.</p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="feature-card p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-primary-500 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-lg bg-pink-100 dark:bg-pink-900/30 text-pink-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">24/7 Тусламж</h3>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Манай хэрэглэгчийн нэвтрүүлэлтын албй 24/7 таны асуултад хариулахад бэлэн байна.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="roles" class="relative py-24 overflow-hidden">
+
+            <section id="roles" class="relative py-24 overflow-hidden">
+
+                <div class="absolute inset-0 -z-20 bg-slate-50 dark:bg-slate-950"></div>
+
+                <div class="absolute inset-0 -z-10 opacity-[0.15] dark:opacity-[0.1]" style="background-image: radial-gradient(#5c3090 1.5px, transparent 1.5px); background-size: 24px 24px;">
+                </div>
+
+                <div class="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] bg-[#5c3090]/30 dark:bg-[#5c3090]/40 rounded-full blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-screen"></div>
+
+                <div class="absolute bottom-[-10%] right-[-10%] w-[700px] h-[700px] bg-indigo-500/25 dark:bg-indigo-500/30 rounded-full blur-[100px] pointer-events-none"></div>
+
+                <div class="absolute top-40 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[800px] bg-gradient-to-b from-white/0 via-white/80 to-white/0 dark:from-slate-950/0 dark:via-slate-900/80 dark:to-slate-950/0 blur-3xl -z-15 pointer-events-none"></div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                        <div class="text-center max-w-3xl mx-auto mb-16">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white"><span class="text-[#5c3090]">Amjilt LMS</span> хандах эрхүүд ба бүтэц</h2>
+                            <p class="text-lg text-slate-600 dark:text-slate-400">Системийн эрхүүд нь хэрэглэгчдэд LMS дээр ямар үйлдлүүдийг гүйцэтгэх боломжтойг тодорхойлдог</p>
+                        </div>
+
+
+                        <div class="relative space-y-10">
+
+                            <div class="hidden lg:block absolute top-10 left-1/2 -translate-x-1/2 w-px h-full bg-gradient-to-b from-slate-300 via-slate-200 to-transparent dark:from-slate-700 dark:via-slate-800 -z-10"></div>
+
+                            <div class="flex justify-center relative z-10">
+                                <div class="w-full max-w-[320px]">
+                                    <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-indigo-500 dark:hover:border-indigo-500 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full overflow-hidden group">
+                                        <div class="p-6 flex flex-col items-center text-center flex-grow">
+                                            <div class="w-72 h-72 mb-6 relative">
+                                                <div class="absolute inset-0 bg-indigo-100 dark:bg-indigo-900/30 rounded-2xl rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
+                                                <img src="./assets/role/lmsw_1.jpg" alt="Director" class="relative w-full h-full object-cover rounded-2xl shadow-md">
+                                            </div>
+
+                                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-1">Захирал</h3>
+                                            <p class="text-sm text-slate-500 dark:text-slate-400 mb-5 font-medium">Байгууллагын удирдлага</p>
+
+                                            <div class="w-full pt-5 border-t border-slate-100 dark:border-slate-800 mt-auto">
+                                                <ul class="text-sm text-left space-y-2.5 text-slate-600 dark:text-slate-300">
+                                                    <li class="flex items-start gap-3"><span class="text-indigo-500 font-bold text-lg leading-none">✔</span> Бүх модульд бүрэн хандалт</li>
+                                                    <li class="flex items-start gap-3"><span class="text-indigo-500 font-bold text-lg leading-none">✔</span> Хүний нөөц, Санхүү хянах</li>
+                                                    <li class="flex items-start gap-3"><span class="text-indigo-500 font-bold text-lg leading-none">✔</span> Статистик, Тайлан харах</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto relative z-10">
+
+                                <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-purple-500 dark:hover:border-purple-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full overflow-hidden group">
+                                    <div class="p-6 flex flex-col items-center text-center flex-grow">
+                                        <div class="w-72  h-72 mb-6 relative">
+                                            <div class="absolute inset-0 bg-purple-100 dark:bg-purple-900/30 rounded-2xl rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
+                                            <img src="./assets/role/lmsw_2.jpg" alt="Manager" class="relative w-full h-full object-cover rounded-2xl shadow-md">
+                                        </div>
+                                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Менежер</h3>
+                                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-5 font-medium">Сургалтын алба</p>
+
+                                        <div class="w-full pt-5 border-t border-slate-100 dark:border-slate-800 mt-auto">
+                                            <ul class="text-sm text-left space-y-2.5 text-slate-600 dark:text-slate-300">
+                                                <li class="flex items-start gap-3"><span class="text-green-500 font-bold">●</span> Хөтөлбөр, хуваарь удирдах</li>
+                                                <li class="flex items-start gap-3"><span class="text-green-500 font-bold">●</span> Багш, сурагчийн бүртгэл</li>
+                                                <li class="flex items-start gap-3"><span class="text-green-500 font-bold">●</span> Танхим зохион байгуулалт</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-emerald-500 dark:hover:border-emerald-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full overflow-hidden group">
+                                    <div class="p-6 flex flex-col items-center text-center flex-grow">
+                                        <div class="w-72 h-72 mb-6 relative">
+                                            <div class="absolute inset-0 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
+                                            <img src="./assets/role/lmsw_6.jpg" alt="Accountant" class="relative w-full h-full object-cover rounded-2xl shadow-md">
+                                        </div>
+                                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Нягтлан</h3>
+                                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-5 font-medium">Санхүүгийн алба</p>
+
+                                        <div class="w-full pt-5 border-t border-slate-100 dark:border-slate-800 mt-auto">
+                                            <ul class="text-sm text-left space-y-2.5 text-slate-600 dark:text-slate-300">
+                                                <li class="flex items-start gap-3"><span class="text-green-500 font-bold">●</span> Төлбөр тооцоо хөтлөх</li>
+                                                <li class="flex items-start gap-3"><span class="text-green-500 font-bold">●</span> Электрон нэхэмжлэх</li>
+                                                <li class="flex items-start gap-3"><span class="text-green-500 font-bold">●</span> Санхүүгийн тайлан гаргах</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full overflow-hidden group">
+                                    <div class="p-6 flex flex-col items-center text-center flex-grow">
+                                        <div class="w-72 h-72 mb-6 relative">
+                                            <div class="absolute inset-0 bg-blue-100 dark:bg-blue-900/30 rounded-2xl rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
+                                            <img src="./assets/role/lmsw_3.jpg" alt="Teacher" class="relative w-full h-full object-cover rounded-2xl shadow-md">
+                                        </div>
+                                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Багш</h3>
+                                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-5 font-medium">Сургалтын алба</p>
+
+                                        <div class="w-full pt-5 border-t border-slate-100 dark:border-slate-800 mt-auto">
+                                            <ul class="text-sm text-left space-y-2.5 text-slate-600 dark:text-slate-300">
+                                                <li class="flex items-start gap-3"><span class="text-green-500 font-bold">●</span> Хичээл, даалгавар оруулах</li>
+                                                <li class="flex items-start gap-3"><span class="text-green-500 font-bold">●</span> Дүн, ирц бүртгэх</li>
+                                                <li class="flex items-start gap-3"><span class="text-green-500 font-bold">●</span> Сурагчийн явц хянах</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+
+                                <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-amber-500 dark:hover:border-amber-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full overflow-hidden group">
+                                    <div class="p-6 flex flex-col items-center text-center flex-grow">
+                                        <div class="w-62 h-62 mb-6 relative">
+                                            <div class="absolute inset-0 bg-amber-100 dark:bg-amber-900/30 rounded-2xl rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
+                                            <img src="./assets/role/lmsw_4.jpg" alt="Student" class="relative w-full h-full object-cover rounded-2xl shadow-md">
+                                        </div>
+                                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Сурагч</h3>
+                                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-5 font-medium">Суралцагч</p>
+
+                                        <div class="w-full pt-5 border-t border-slate-100 dark:border-slate-800 mt-auto">
+                                            <ul class="text-sm text-left space-y-2.5 text-slate-600 dark:text-slate-300">
+                                                <li class="flex items-start gap-3"><span class="text-amber-500 font-bold">•</span> Хичээл, даалгавар авах</li>
+                                                <li class="flex items-start gap-3"><span class="text-amber-500 font-bold">•</span> Дүн, ирцээ харах</li>
+                                                <li class="flex items-start gap-3"><span class="text-amber-500 font-bold">•</span> Материал татах</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-rose-500 dark:hover:border-rose-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full overflow-hidden group">
+                                    <div class="p-6 flex flex-col items-center text-center flex-grow">
+                                        <div class="w-62 h-62 mb-6 relative">
+                                            <div class="absolute inset-0 bg-rose-100 dark:bg-rose-900/30 rounded-2xl rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
+                                            <img src="./assets/role/lmsw_5.jpg" alt="Parent" class="relative w-full h-full object-cover rounded-2xl shadow-md">
+                                        </div>
+                                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Эцэг эх</h3>
+                                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-5 font-medium">Хяналт</p>
+
+                                        <div class="w-full pt-5 border-t border-slate-100 dark:border-slate-800 mt-auto">
+                                            <ul class="text-sm text-left space-y-2.5 text-slate-600 dark:text-slate-300">
+                                                <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">•</span> Хүүхдийн дүн, ирц хянах</li>
+                                                <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">•</span> Төлбөр төлөх, харах</li>
+                                                <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">•</span> Багштай харилцах</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-lime-500 dark:hover:border-lime-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full overflow-hidden group">
+                                    <div class="p-6 flex flex-col items-center text-center flex-grow">
+                                        <div class="w-62 h-62 mb-6 relative">
+                                            <div class="absolute inset-0 bg-lime-100 dark:bg-lime-900/30 rounded-2xl rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
+                                            <img src="./assets/role/lmsw_8.jpg" alt="Nutrition" class="relative w-full h-full object-cover rounded-2xl shadow-md">
+                                        </div>
+                                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Хоол зүйч</h3>
+                                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-5 font-medium">Үйлчилгээ</p>
+
+                                        <div class="w-full pt-5 border-t border-slate-100 dark:border-slate-800 mt-auto">
+                                            <ul class="text-sm text-left space-y-2.5 text-slate-600 dark:text-slate-300">
+                                                <li class="flex items-start gap-3"><span class="text-lime-500 font-bold">•</span> Хоолны цэс зохиох</li>
+                                                <li class="flex items-start gap-3"><span class="text-lime-500 font-bold">•</span> Харшил хянах</li>
+                                                <li class="flex items-start gap-3"><span class="text-lime-500 font-bold">•</span> Захиалга удирдах</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-slate-500 dark:hover:border-slate-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full overflow-hidden group">
+                                    <div class="p-6 flex flex-col items-center text-center flex-grow">
+                                        <div class="w-62 h-62 mb-6 relative">
+                                            <div class="absolute inset-0 bg-slate-100 dark:bg-slate-800 rounded-2xl rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
+                                            <img src="./assets/role/lmsw_9.jpg" alt="Driver" class="relative w-full h-full object-cover rounded-2xl shadow-md">
+                                        </div>
+                                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Жолооч</h3>
+                                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-5 font-medium">Тээвэр</p>
+
+                                        <div class="w-full pt-5 border-t border-slate-100 dark:border-slate-800 mt-auto">
+                                            <ul class="text-sm text-left space-y-2.5 text-slate-600 dark:text-slate-300">
+                                                <li class="flex items-start gap-3"><span class="text-slate-500 font-bold">•</span> Автобусны ирц бүртгэх</li>
+                                                <li class="flex items-start gap-3"><span class="text-slate-500 font-bold">•</span> Маршрут харах</li>
+                                                <li class="flex items-start gap-3"><span class="text-slate-500 font-bold">•</span> Цагийн хуваарь</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+            </section>
+
+            <!-- COMPONENT: APP PROMO -->
+            <section id="app" class="py-24 bg-slate-50 dark:bg-slate-900 overflow-hidden">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+                        <div class="order-2 lg:order-1 relative">
+                            <div class="relative mx-auto border-slate-800 dark:border-slate-800 bg-slate-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl">
+                                <div class="h-[32px] w-[3px] bg-slate-800 absolute -left-[17px] top-[72px] rounded-l-lg"></div>
+                                <div class="h-[46px] w-[3px] bg-slate-800 absolute -left-[17px] top-[124px] rounded-l-lg"></div>
+                                <div class="h-[46px] w-[3px] bg-slate-800 absolute -left-[17px] top-[178px] rounded-l-lg"></div>
+                                <div class="h-[64px] w-[3px] bg-slate-800 absolute -right-[17px] top-[142px] rounded-r-lg"></div>
+                                <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-slate-800 relative">
+                                    <div id="app-screens" class="flex h-full transition-transform duration-500">
+                                        <img src="./assets/Loading.png" alt="Ачаалж байна" class="w-full h-full object-cover shrink-0">
+                                        <img src="./assets/Login.png" alt="Нэвтрэх" class="w-full h-full object-cover shrink-0">
+                                        <img src="./assets/Home.png" alt="Нүүр хуудас" class="w-full h-full object-cover shrink-0">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl -z-10"></div>
+                        </div>
+
+                        <div class="order-1 lg:order-2">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-slate-900 dark:text-white">
+                                Суралцах үйл явц <br> зөвхөн ширээний ард өрнөхгүй.
+                            </h2>
+                            <p class="text-lg text-slate-600 dark:text-slate-400 mb-8">
+                                Манай iOS болон Android аппликейшнээр суралцах үйл явц хялбар болж, бүх мэдээллийг нэг дор төвлөрүүлдэг тул сурагчид өөрийн амьдрал, хичээлийн явцыг хялбархан хянах, цаг хугацаагаа зөв төлөвлөх, шаардлагатай мэдээг цаг алдалгүй авах боломжтой болдог.
+                                <ul class="space-y-4 mb-8">
+                                    <li class="flex items-center gap-3">
+                                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span class="text-slate-700 dark:text-slate-300">Бүх эрх Апплейкшнээс хандах боломжтой</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span class="text-slate-700 dark:text-slate-300">Бүх төрлийн мэдэгдэл</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span class="text-slate-700 dark:text-slate-300">Хүн бүхэнд тохирсон ойлгомжтой интерфэйс</span>
+                                    </li>
+                                </ul>
+
+                                <div class="flex flex-wrap gap-4">
+                                    <button class="bg-slate-900 dark:bg-white dark:text-slate-900 text-white px-6 py-3 rounded-lg flex items-center gap-2 hover:opacity-90 transition shadow-lg">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.74 1.18 0 2.21-.84 3.67-.84 1.52 0 2.98.63 3.71 1.74-3.3 1.97-2.7 6.57.54 7.85-.32.81-.76 1.8-1.35 2.61-1.14 1.6-2.33 1.69-3.65.87zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+                        <div class="text-left">
+                            <div class="text-[10px] leading-none opacity-80">Татах</div>
+                            <div class="text-sm font-bold leading-none">App Store</div>
+                        </div>
+                    </button>
+                                    <button class="bg-slate-900 dark:bg-white dark:text-slate-900 text-white px-6 py-3 rounded-lg flex items-center gap-2 hover:opacity-90 transition shadow-lg">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" /></svg>
+                        <div class="text-left">
+                            <div class="text-[10px] leading-none opacity-80">Татах</div>
+                            <div class="text-sm font-bold leading-none">Google Play</div>
+                        </div>
+                    </button>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COMPONENT: FAQ -->
+            <section id="faq" class="py-24">
+                <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-3xl font-bold text-center mb-12">Тусламж</h2>
+
+                    <div class="space-y-4">
+                        <!-- FAQ Item 1 -->
+                        <details class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden transition-all duration-300 open:ring-2 open:ring-primary-500/20">
+                            <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-medium text-lg">
+                                <span>Холбоо барих</span>
+                                <span class="transition group-open:rotate-180">
+                                <svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </span>
+                            </summary>
+                            <div class="px-6 pb-6 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
+                                We charge per active user per month. An "active user" is anyone who logs in during the billing period. If they don't log in, you don't pay.
+                            </div>
+                        </details>
+
+                        <!-- FAQ Item 2 -->
+                        <details class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden transition-all duration-300 open:ring-2 open:ring-primary-500/20">
+                            <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-medium text-lg">
+                                <span>Систем ашиглах гарын авлага</span>
+                                <span class="transition group-open:rotate-180">
+                                <svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </span>
+                            </summary>
+                            <div class="px-6 pb-6 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
+                                Yes! We support SCORM 1.2 and 2004, as well as xAPI (Tin Can). You can simply drag and drop your zip files into the course builder.
+                            </div>
+                        </details>
+
+                    </div>
+                </div>
+            </section>
+    </main>
+
+    <!-- COMPONENT: FOOTER -->
+    <footer class="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+
+                <div class="text-center md:text-left space-y-2">
+                    <div class="flex items-center justify-center md:justify-start gap-2">
+                        <img class="w-24 h-24" src="./assets/logo (2).png" alt="">
+                    </div>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">
+                        © 2024 Amjilt LMS. Бүх эрх хуулиар хамгаалагдсан.
+                    </p>
+                </div>
+
+                <div class="flex items-center gap-6">
+                    <a href="#" class="text-slate-400 hover:text-primary-600 transition-colors">
+                        <span class="sr-only">Facebook</span>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-primary-600 transition-colors">
+                        <span class="sr-only">Instagram</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke-width="2"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2"></line></svg>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-primary-600 transition-colors">
+                        <span class="sr-only">Twitter</span>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path></svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- COMPONENT: LOGIN MODAL -->
+    <dialog id="login-modal" class="rounded-3xl shadow-2xl backdrop:bg-slate-900/60 backdrop:backdrop-blur-sm bg-transparent p-0 overflow-hidden open:animate-fade-in transition-all duration-300">
+
+        <div class="bg-white dark:bg-slate-900 w-full max-w-lg p-10 rounded-3xl border border-slate-200 dark:border-slate-700 relative shadow-inner">
+
+            <button id="close-modal" onclick="document.getElementById('login-modal').close()" class="absolute top-5 right-5 p-2 rounded-full text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-600 dark:hover:text-white transition-all duration-200">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+
+            <div class="text-center mb-10">
+
+                <h3 class="text-3xl font-extrabold mb-2 text-slate-900 dark:text-white tracking-tight">Тавтай морилно уу</h3>
+                <p class="text-slate-500 dark:text-slate-400 text-base">Системд нэвтрэхийн тулд мэдээллээ оруулна уу.</p>
+            </div>
+
+            <form class="space-y-6" onsubmit="event.preventDefault(); alert('Амжилттай нэвтэрлээ (Simulation)!'); document.getElementById('login-modal').close();">
+
+                <div>
+                    <label for="email" class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2 ml-1">И-мэйл хаяг</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <i class="fas fa-envelope text-slate-400"></i>
+                        </div>
+                        <input type="email" id="email" class="w-full pl-11 pr-4 py-3.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-gray-50 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-4 focus:ring-primary-500/20 focus:border-primary-500 outline-none transition-all"
+                            placeholder="Нэвтрэх нэр" required>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex justify-between items-center mb-2 ml-1">
+                        <label for="password" class="block text-sm font-bold text-slate-700 dark:text-slate-300">Нууц үг</label>
+                        <a href="#" class="text-sm font-medium text-primary-600 hover:text-primary-500 dark:text-primary-400">Мартсан уу?</a>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <i class="fas fa-lock text-slate-400"></i>
+                        </div>
+                        <input type="password" id="password" class="w-full pl-11 pr-4 py-3.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-gray-50 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-4 focus:ring-primary-500/20 focus:border-primary-500 outline-none transition-all"
+                            placeholder="Нууц үг" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold text-lg rounded-xl shadow-lg shadow-blue-500/30 transform hover:-translate-y-0.5 transition-all duration-200">
+                Нэвтрэх
+            </button>
+            </form>
+        </div>
+    </dialog>
+
+    <style>
+        dialog[open] {
+            animation: zoomIn 0.3s ease-out;
+        }
+        
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        dialog::backdrop {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+        }
+    </style>
+
+    <!-- COMPONENT: APP.JS -->
+    <script src="./js/main.js">
+    </script>
+</body>
+
+</html>
+
+</html>
+
+</html>
