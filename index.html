@@ -243,10 +243,6 @@
                                 <button id="login-btn" href="#" class="group flex items-center justify-center gap-3 px-8 py-4 text-base font-bold text-white bg-primary-600 rounded-xl hover:bg-primary-700 hover:scale-105 transition-all shadow-xl shadow-primary-600/20">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 group-hover:animate-pulse"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>                                    Хэрэглэгч нэвтрэх
                                 </button>
-
-                                <a href="tel:77116060" class="flex items-center justify-center gap-3 px-8 py-4 text-base font-bold text-slate-700 dark:text-white bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-slate-300 transition-all shadow-lg shadow-slate-200/20 dark:shadow-none">
-                                    <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>                                    7711-6060
-                                </a>
                             </div>
 
 
@@ -390,374 +386,460 @@
             </div>
         </section>
 
-        <!-- COMPONENT: FEATURES -->
-        <section id="features" class="py-24 relative">
+        <section id="features" class="py-24 bg-slate-50 dark:bg-slate-950 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl -z-10"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl -z-10"></div>
+
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <!-- <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Everything you need to run your <br><span class="text-primary-600">Knowledge Empire</span></h2>
-                    <p class="text-lg text-slate-600 dark:text-slate-400">Admins get total control. Learners get an intuitive experience. Everyone wins.</p>
-                </div> -->
-
                 <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Feature 1 -->
-                    <div class="feature-card p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-primary-500 transition-all duration-300 group">
-                        <div class="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Цогц систем</h3>
-                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Суралцагч, багш, удирдлагын хэрэгцээг бүрэн хангах олон боломжийг нэг дор агуулсан платформ.
 
-                        </p>
+                    <div class="relative group bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border border-slate-200 dark:border-slate-800 p-8 rounded-3xl hover:border-blue-500 transition-colors duration-300">
+                        <div class="absolute inset-0 bg-blue-500/5 dark:bg-blue-500/10 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
+
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 rounded-2xl bg-blue-50 dark:bg-slate-800 border border-blue-100 dark:border-slate-700 flex items-center justify-center mb-6 text-blue-600 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Цогц систем</h3>
+                            <p class="text-slate-600 dark:text-slate-400">Суралцагч, багш, удирдлагын хэрэгцээг бүрэн хангах олон боломжийг нэг дор агуулсан платформ.</p>
+                        </div>
                     </div>
 
-                    <!-- Feature 2 -->
-                    <div class="feature-card p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-primary-500 transition-all duration-300 group">
-                        <div class="w-12 h-12 rounded-lg bg-purple-100 dark:bg-purple-900/30 text-purple-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    <div class="relative group bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border border-slate-200 dark:border-slate-800 p-8 rounded-3xl hover:border-purple-500 transition-colors duration-300">
+                        <div class="absolute inset-0 bg-purple-500/5 dark:bg-purple-500/10 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
+
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 rounded-2xl bg-purple-50 dark:bg-slate-800 border border-purple-100 dark:border-slate-700 flex items-center justify-center mb-6 text-purple-600 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Хөгжүүлэлт</h3>
+                            <p class="text-slate-600 dark:text-slate-400">Технологийн хөгжлийг тасралтгүй шингээж, илүү хялбар, илүү хурдтай системийг үргэлж санал болгоно.</p>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Хөгжүүлэлт</h3>
-                        <p class="text-slate-600 dark:text-slate-400 lowercase leading-relaxed">ТЕХНОЛОГИЙН ХӨГЖЛИЙГ ТАСРАЛТГҮЙ ШИНГЭЭЖ, ИЛҮҮ ХЯЛБАР, ИЛҮҮ ХУРДТАЙ СИСТЕМИЙГ ҮРГЭЛЖ САНАЛ БОЛГОНО.</p>
                     </div>
 
-                    <!-- Feature 3 -->
-                    <div class="feature-card p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-primary-500 transition-all duration-300 group">
-                        <div class="w-12 h-12 rounded-lg bg-pink-100 dark:bg-pink-900/30 text-pink-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <div class="relative group bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border border-slate-200 dark:border-slate-800 p-8 rounded-3xl hover:border-pink-500 transition-colors duration-300">
+                        <div class="absolute inset-0 bg-pink-500/5 dark:bg-pink-500/10 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-300"></div>
+
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 rounded-2xl bg-pink-50 dark:bg-slate-800 border border-pink-100 dark:border-slate-700 flex items-center justify-center mb-6 text-pink-600 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">24/7 Тусламж</h3>
+                            <p class="text-slate-600 dark:text-slate-400">Манай хэрэглэгчийн нэвтрүүлэлтийн алба 24/7 таны асуултад хариулахад бэлэн байна.</p>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">24/7 Тусламж</h3>
-                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Манай хэрэглэгчийн нэвтрүүлэлтын албй 24/7 таны асуултад хариулахад бэлэн байна.</p>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <section id="roles" class="relative py-24 overflow-hidden">
 
-            <section id="roles" class="relative py-24 overflow-hidden">
+        <section id="roles" class="py-24 bg-slate-50 dark:bg-slate-950 transition-colors duration-300 relative overflow-hidden">
 
-                <div class="absolute inset-0 -z-20 bg-slate-50 dark:bg-slate-950"></div>
+            <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+                <div class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-[-10%] left-[-5%] w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
+            </div>
 
-                <div class="absolute inset-0 -z-10 opacity-[0.15] dark:opacity-[0.1]" style="background-image: radial-gradient(#5c3090 1.5px, transparent 1.5px); background-size: 24px 24px;">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+                <div class="text-center max-w-3xl mx-auto mb-20">
+                    <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                Системийн бүтэц
+            </span>
+                    <h2 class="mt-4 text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">Amjilt LMS</span> хандах эрхүүд
+                    </h2>
+                    <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">
+                        Системийн эрхүүд нь хэрэглэгчдэд LMS дээр ямар үйлдлүүдийг гүйцэтгэх боломжтойг тодорхойлдог
+                    </p>
                 </div>
 
-                <div class="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] bg-[#5c3090]/30 dark:bg-[#5c3090]/40 rounded-full blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-screen"></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-16 gap-x-8">
 
-                <div class="absolute bottom-[-10%] right-[-10%] w-[700px] h-[700px] bg-indigo-500/25 dark:bg-indigo-500/30 rounded-full blur-[100px] pointer-events-none"></div>
+                    <div class="group relative flex flex-col items-center text-center">
+                        <div class="hidden lg:block absolute top-12 left-1/2 w-full h-0.5 border-t-2 border-dashed border-slate-200 dark:border-slate-800 -z-10 group-last:hidden"></div>
+                        <div class="lg:hidden absolute top-12 left-1/2 h-full w-0.5 border-l-2 border-dashed border-slate-200 dark:border-slate-800 -z-10"></div>
 
-                <div class="absolute top-40 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[800px] bg-gradient-to-b from-white/0 via-white/80 to-white/0 dark:from-slate-950/0 dark:via-slate-900/80 dark:to-slate-950/0 blur-3xl -z-15 pointer-events-none"></div>
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                        <div class="text-center max-w-3xl mx-auto mb-16">
-                            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white"><span class="text-[#5c3090]">Amjilt LMS</span> хандах эрхүүд ба бүтэц</h2>
-                            <p class="text-lg text-slate-600 dark:text-slate-400">Системийн эрхүүд нь хэрэглэгчдэд LMS дээр ямар үйлдлүүдийг гүйцэтгэх боломжтойг тодорхойлдог</p>
+                        <div class="relative w-24 h-24 rounded-full bg-white dark:bg-slate-900 border-4 border-slate-50 dark:border-slate-950 shadow-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-purple-100 dark:group-hover:border-purple-900/50 transition-all duration-300 z-10">
+                            <div class="absolute inset-0 rounded-full bg-purple-50 dark:bg-purple-900/20">
+                                <img class="rounded-full" src="./assets/role/lmsw_1.jpg" alt="">
+                            </div>
+
                         </div>
 
-
-                        <div class="relative space-y-10">
-
-                            <div class="hidden lg:block absolute top-10 left-1/2 -translate-x-1/2 w-px h-full bg-gradient-to-b from-slate-300 via-slate-200 to-transparent dark:from-slate-700 dark:via-slate-800 -z-10"></div>
-
-                            <div class="flex justify-center relative z-10">
-                                <div class="w-full max-w-[320px]">
-                                    <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-indigo-500 dark:hover:border-indigo-500 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full overflow-hidden group">
-                                        <div class="p-6 flex flex-col items-center text-center flex-grow">
-                                            <div class="w-72 h-72 mb-6 relative">
-                                                <div class="absolute inset-0 bg-indigo-100 dark:bg-indigo-900/30 rounded-2xl rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
-                                                <img src="./assets/role/lmsw_1.jpg" alt="Director" class="relative w-full h-full object-cover rounded-2xl shadow-md">
-                                            </div>
-
-                                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-1">Захирал</h3>
-                                            <p class="text-sm text-slate-500 dark:text-slate-400 mb-5 font-medium">Байгууллагын удирдлага</p>
-
-                                            <div class="w-full pt-5 border-t border-slate-100 dark:border-slate-800 mt-auto">
-                                                <ul class="text-sm text-left space-y-2.5 text-slate-600 dark:text-slate-300">
-                                                    <li class="flex items-start gap-3"><span class="text-indigo-500 font-bold text-lg leading-none">✔</span> Бүх модульд бүрэн хандалт</li>
-                                                    <li class="flex items-start gap-3"><span class="text-indigo-500 font-bold text-lg leading-none">✔</span> Хүний нөөц, Санхүү хянах</li>
-                                                    <li class="flex items-start gap-3"><span class="text-indigo-500 font-bold text-lg leading-none">✔</span> Статистик, Тайлан харах</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto relative z-10">
-
-                                <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-purple-500 dark:hover:border-purple-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full overflow-hidden group">
-                                    <div class="p-6 flex flex-col items-center text-center flex-grow">
-                                        <div class="w-72  h-72 mb-6 relative">
-                                            <div class="absolute inset-0 bg-purple-100 dark:bg-purple-900/30 rounded-2xl rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
-                                            <img src="./assets/role/lmsw_2.jpg" alt="Manager" class="relative w-full h-full object-cover rounded-2xl shadow-md">
-                                        </div>
-                                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Менежер</h3>
-                                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-5 font-medium">Сургалтын алба</p>
-
-                                        <div class="w-full pt-5 border-t border-slate-100 dark:border-slate-800 mt-auto">
-                                            <ul class="text-sm text-left space-y-2.5 text-slate-600 dark:text-slate-300">
-                                                <li class="flex items-start gap-3"><span class="text-green-500 font-bold">●</span> Хөтөлбөр, хуваарь удирдах</li>
-                                                <li class="flex items-start gap-3"><span class="text-green-500 font-bold">●</span> Багш, сурагчийн бүртгэл</li>
-                                                <li class="flex items-start gap-3"><span class="text-green-500 font-bold">●</span> Танхим зохион байгуулалт</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-emerald-500 dark:hover:border-emerald-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full overflow-hidden group">
-                                    <div class="p-6 flex flex-col items-center text-center flex-grow">
-                                        <div class="w-72 h-72 mb-6 relative">
-                                            <div class="absolute inset-0 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
-                                            <img src="./assets/role/lmsw_6.jpg" alt="Accountant" class="relative w-full h-full object-cover rounded-2xl shadow-md">
-                                        </div>
-                                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Нягтлан</h3>
-                                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-5 font-medium">Санхүүгийн алба</p>
-
-                                        <div class="w-full pt-5 border-t border-slate-100 dark:border-slate-800 mt-auto">
-                                            <ul class="text-sm text-left space-y-2.5 text-slate-600 dark:text-slate-300">
-                                                <li class="flex items-start gap-3"><span class="text-green-500 font-bold">●</span> Төлбөр тооцоо хөтлөх</li>
-                                                <li class="flex items-start gap-3"><span class="text-green-500 font-bold">●</span> Электрон нэхэмжлэх</li>
-                                                <li class="flex items-start gap-3"><span class="text-green-500 font-bold">●</span> Санхүүгийн тайлан гаргах</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full overflow-hidden group">
-                                    <div class="p-6 flex flex-col items-center text-center flex-grow">
-                                        <div class="w-72 h-72 mb-6 relative">
-                                            <div class="absolute inset-0 bg-blue-100 dark:bg-blue-900/30 rounded-2xl rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
-                                            <img src="./assets/role/lmsw_3.jpg" alt="Teacher" class="relative w-full h-full object-cover rounded-2xl shadow-md">
-                                        </div>
-                                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Багш</h3>
-                                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-5 font-medium">Сургалтын алба</p>
-
-                                        <div class="w-full pt-5 border-t border-slate-100 dark:border-slate-800 mt-auto">
-                                            <ul class="text-sm text-left space-y-2.5 text-slate-600 dark:text-slate-300">
-                                                <li class="flex items-start gap-3"><span class="text-green-500 font-bold">●</span> Хичээл, даалгавар оруулах</li>
-                                                <li class="flex items-start gap-3"><span class="text-green-500 font-bold">●</span> Дүн, ирц бүртгэх</li>
-                                                <li class="flex items-start gap-3"><span class="text-green-500 font-bold">●</span> Сурагчийн явц хянах</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="bg-white dark:bg-slate-900 w-full rounded-2xl p-6 shadow-md border border-slate-100 dark:border-slate-800 group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 relative z-20">
+                            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-purple-500 rounded-full border-4 border-white dark:border-slate-900">
 
                             </div>
-
-                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
-
-                                <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-amber-500 dark:hover:border-amber-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full overflow-hidden group">
-                                    <div class="p-6 flex flex-col items-center text-center flex-grow">
-                                        <div class="w-62 h-62 mb-6 relative">
-                                            <div class="absolute inset-0 bg-amber-100 dark:bg-amber-900/30 rounded-2xl rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
-                                            <img src="./assets/role/lmsw_4.jpg" alt="Student" class="relative w-full h-full object-cover rounded-2xl shadow-md">
-                                        </div>
-                                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Сурагч</h3>
-                                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-5 font-medium">Суралцагч</p>
-
-                                        <div class="w-full pt-5 border-t border-slate-100 dark:border-slate-800 mt-auto">
-                                            <ul class="text-sm text-left space-y-2.5 text-slate-600 dark:text-slate-300">
-                                                <li class="flex items-start gap-3"><span class="text-amber-500 font-bold">•</span> Хичээл, даалгавар авах</li>
-                                                <li class="flex items-start gap-3"><span class="text-amber-500 font-bold">•</span> Дүн, ирцээ харах</li>
-                                                <li class="flex items-start gap-3"><span class="text-amber-500 font-bold">•</span> Материал татах</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-rose-500 dark:hover:border-rose-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full overflow-hidden group">
-                                    <div class="p-6 flex flex-col items-center text-center flex-grow">
-                                        <div class="w-62 h-62 mb-6 relative">
-                                            <div class="absolute inset-0 bg-rose-100 dark:bg-rose-900/30 rounded-2xl rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
-                                            <img src="./assets/role/lmsw_5.jpg" alt="Parent" class="relative w-full h-full object-cover rounded-2xl shadow-md">
-                                        </div>
-                                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Эцэг эх</h3>
-                                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-5 font-medium">Хяналт</p>
-
-                                        <div class="w-full pt-5 border-t border-slate-100 dark:border-slate-800 mt-auto">
-                                            <ul class="text-sm text-left space-y-2.5 text-slate-600 dark:text-slate-300">
-                                                <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">•</span> Хүүхдийн дүн, ирц хянах</li>
-                                                <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">•</span> Төлбөр төлөх, харах</li>
-                                                <li class="flex items-start gap-3"><span class="text-rose-500 font-bold">•</span> Багштай харилцах</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-lime-500 dark:hover:border-lime-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full overflow-hidden group">
-                                    <div class="p-6 flex flex-col items-center text-center flex-grow">
-                                        <div class="w-62 h-62 mb-6 relative">
-                                            <div class="absolute inset-0 bg-lime-100 dark:bg-lime-900/30 rounded-2xl rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
-                                            <img src="./assets/role/lmsw_8.jpg" alt="Nutrition" class="relative w-full h-full object-cover rounded-2xl shadow-md">
-                                        </div>
-                                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Хоол зүйч</h3>
-                                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-5 font-medium">Үйлчилгээ</p>
-
-                                        <div class="w-full pt-5 border-t border-slate-100 dark:border-slate-800 mt-auto">
-                                            <ul class="text-sm text-left space-y-2.5 text-slate-600 dark:text-slate-300">
-                                                <li class="flex items-start gap-3"><span class="text-lime-500 font-bold">•</span> Хоолны цэс зохиох</li>
-                                                <li class="flex items-start gap-3"><span class="text-lime-500 font-bold">•</span> Харшил хянах</li>
-                                                <li class="flex items-start gap-3"><span class="text-lime-500 font-bold">•</span> Захиалга удирдах</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-slate-500 dark:hover:border-slate-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full overflow-hidden group">
-                                    <div class="p-6 flex flex-col items-center text-center flex-grow">
-                                        <div class="w-62 h-62 mb-6 relative">
-                                            <div class="absolute inset-0 bg-slate-100 dark:bg-slate-800 rounded-2xl rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
-                                            <img src="./assets/role/lmsw_9.jpg" alt="Driver" class="relative w-full h-full object-cover rounded-2xl shadow-md">
-                                        </div>
-                                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Жолооч</h3>
-                                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-5 font-medium">Тээвэр</p>
-
-                                        <div class="w-full pt-5 border-t border-slate-100 dark:border-slate-800 mt-auto">
-                                            <ul class="text-sm text-left space-y-2.5 text-slate-600 dark:text-slate-300">
-                                                <li class="flex items-start gap-3"><span class="text-slate-500 font-bold">•</span> Автобусны ирц бүртгэх</li>
-                                                <li class="flex items-start gap-3"><span class="text-slate-500 font-bold">•</span> Маршрут харах</li>
-                                                <li class="flex items-start gap-3"><span class="text-slate-500 font-bold">•</span> Цагийн хуваарь</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Захирал</h3>
+                            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-4">Бүрэн удирдлага</p>
+                            <ul class="space-y-3 text-sm text-left text-slate-600 dark:text-slate-300 w-full">
+                                <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl hover:bg-purple-50 dark:hover:bg-purple-900/10 transition-colors">
+                                    <div class="flex-shrink-0 w-3 h-3 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mt-3"><i class="fas fa-check text-purple-600 dark:text-purple-400 text-[10px]"></i></div>
+                                    <span class="leading-snug">Системийн бүх хэсэгт хандах</span>
+                                </li>
+                                <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl hover:bg-purple-50 dark:hover:bg-purple-900/10 transition-colors">
+                                    <div class="flex-shrink-0 w-3 h-3 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mt-3"><i class="fas fa-check text-purple-600 dark:text-purple-400 text-[10px]"></i></div>
+                                    <span class="leading-snug">Санхүү, төсөв & гүйлгээ батлах</span>
+                                </li>
+                                <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl hover:bg-purple-50 dark:hover:bg-purple-900/10 transition-colors">
+                                    <div class="flex-shrink-0 w-3 h-3 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mt-3"><i class="fas fa-check text-purple-600 dark:text-purple-400 text-[10px]"></i></div>
+                                    <span class="leading-snug">Дата анализ, сургалтын чанар</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-            </section>
 
-            <!-- COMPONENT: APP PROMO -->
-            <section id="app" class="py-24 bg-slate-50 dark:bg-slate-900 overflow-hidden">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="group relative flex flex-col items-center text-center">
+                        <div class="hidden lg:block absolute top-12 left-1/2 w-full h-0.5 border-t-2 border-dashed border-slate-200 dark:border-slate-800 -z-10"></div>
+                        <div class="lg:hidden absolute top-12 left-1/2 h-full w-0.5 border-l-2 border-dashed border-slate-200 dark:border-slate-800 -z-10"></div>
 
-                        <div class="order-2 lg:order-1 relative">
-                            <div class="relative mx-auto border-slate-800 dark:border-slate-800 bg-slate-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl">
-                                <div class="h-[32px] w-[3px] bg-slate-800 absolute -left-[17px] top-[72px] rounded-l-lg"></div>
-                                <div class="h-[46px] w-[3px] bg-slate-800 absolute -left-[17px] top-[124px] rounded-l-lg"></div>
-                                <div class="h-[46px] w-[3px] bg-slate-800 absolute -left-[17px] top-[178px] rounded-l-lg"></div>
-                                <div class="h-[64px] w-[3px] bg-slate-800 absolute -right-[17px] top-[142px] rounded-r-lg"></div>
-                                <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-slate-800 relative">
-                                    <div id="app-screens" class="flex h-full transition-transform duration-500">
-                                        <img src="./assets/Loading.png" alt="Ачаалж байна" class="w-full h-full object-cover shrink-0">
-                                        <img src="./assets/Login.png" alt="Нэвтрэх" class="w-full h-full object-cover shrink-0">
-                                        <img src="./assets/Home.png" alt="Нүүр хуудас" class="w-full h-full object-cover shrink-0">
-                                    </div>
-                                </div>
+                        <div class="relative w-24 h-24 rounded-full bg-white dark:bg-slate-900 border-4 border-slate-50 dark:border-slate-950 shadow-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-blue-100 dark:group-hover:border-blue-900/50 transition-all duration-300 z-10">
+                            <div class="absolute inset-0 rounded-full bg-blue-50 dark:bg-blue-900/20">
+                                <img class="rounded-full" src="./assets/role/lmsw_2.jpg" alt="">
                             </div>
-                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl -z-10"></div>
+
                         </div>
 
-                        <div class="order-1 lg:order-2">
-                            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-slate-900 dark:text-white">
-                                Суралцах үйл явц <br> зөвхөн ширээний ард өрнөхгүй.
-                            </h2>
-                            <p class="text-lg text-slate-600 dark:text-slate-400 mb-8">
-                                Манай iOS болон Android аппликейшнээр суралцах үйл явц хялбар болж, бүх мэдээллийг нэг дор төвлөрүүлдэг тул сурагчид өөрийн амьдрал, хичээлийн явцыг хялбархан хянах, цаг хугацаагаа зөв төлөвлөх, шаардлагатай мэдээг цаг алдалгүй авах боломжтой болдог.
-                                <ul class="space-y-4 mb-8">
-                                    <li class="flex items-center gap-3">
-                                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                        <span class="text-slate-700 dark:text-slate-300">Бүх эрх Апплейкшнээс хандах боломжтой</span>
-                                    </li>
-                                    <li class="flex items-center gap-3">
-                                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                        <span class="text-slate-700 dark:text-slate-300">Бүх төрлийн мэдэгдэл</span>
-                                    </li>
-                                    <li class="flex items-center gap-3">
-                                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                        <span class="text-slate-700 dark:text-slate-300">Хүн бүхэнд тохирсон ойлгомжтой интерфэйс</span>
-                                    </li>
-                                </ul>
+                        <div class="bg-white dark:bg-slate-900 w-full rounded-2xl p-6 shadow-md border border-slate-100 dark:border-slate-800 group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 relative z-20">
+                            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-white dark:border-slate-900"></div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Менежер</h3>
+                            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-4">Сургалтын алба</p>
+                            <ul class="space-y-3 text-sm text-left text-slate-600 dark:text-slate-300 w-full">
+                                <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl hover:bg-blue-50 dark:hover:bg-blue-900/10 transition-colors">
+                                    <div class="flex-shrink-0 w-3 h-3 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mt-3"><i class="fas fa-check text-blue-600 dark:text-blue-400 text-[10px]"></i></div>
+                                    <span class="leading-snug">Хичээлийн хуваарь зохиох</span>
+                                </li>
+                                <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl hover:bg-blue-50 dark:hover:bg-blue-900/10 transition-colors">
+                                    <div class="flex-shrink-0 w-3 h-3 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mt-3"><i class="fas fa-check text-blue-600 dark:text-blue-400 text-[10px]"></i></div>
+                                    <span class="leading-snug">Багш нарын ажлыг хянах</span>
+                                </li>
+                                <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl hover:bg-blue-50 dark:hover:bg-blue-900/10 transition-colors">
+                                    <div class="flex-shrink-0 w-3 h-3 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mt-3"><i class="fas fa-check text-blue-600 dark:text-blue-400 text-[10px]"></i></div>
+                                    <span class="leading-snug">Ирц, дүнгийн статистик гаргах</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-                                <div class="flex flex-wrap gap-4">
-                                    <button class="bg-slate-900 dark:bg-white dark:text-slate-900 text-white px-6 py-3 rounded-lg flex items-center gap-2 hover:opacity-90 transition shadow-lg">
+                    <div class="group relative flex flex-col items-center text-center">
+                        <div class="hidden lg:block absolute top-12 left-1/2 w-full h-0.5 border-t-2 border-dashed border-slate-200 dark:border-slate-800 -z-10"></div>
+                        <div class="lg:hidden absolute top-12 left-1/2 h-full w-0.5 border-l-2 border-dashed border-slate-200 dark:border-slate-800 -z-10"></div>
+
+                        <div class="relative w-24 h-24 rounded-full bg-white dark:bg-slate-900 border-4 border-slate-50 dark:border-slate-950 shadow-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-emerald-100 dark:group-hover:border-emerald-900/50 transition-all duration-300 z-10">
+                            <div class="absolute inset-0 rounded-full bg-emerald-50 dark:bg-emerald-900/20">
+                                <img class="rounded-full" src="./assets/role/lmsw_6.jpg" alt="">
+                            </div>
+
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-900 w-full rounded-2xl p-6 shadow-md border border-slate-100 dark:border-slate-800 group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 relative z-20">
+                            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-emerald-500 rounded-full border-4 border-white dark:border-slate-900"></div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Нягтлан</h3>
+                            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-4">Санхүүгийн алба</p>
+                            <ul class="space-y-3 text-sm text-left text-slate-600 dark:text-slate-300 w-full">
+                                <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl hover:bg-emerald-50 dark:hover:bg-emerald-900/10 transition-colors">
+                                    <div class="flex-shrink-0 w-3 h-3 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mt-3"><i class="fas fa-check text-emerald-600 dark:text-emerald-400 text-[10px]"></i></div>
+                                    <span class="leading-snug">Төлбөр тооцоо, цалин бодох</span>
+                                </li>
+                                <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl hover:bg-emerald-50 dark:hover:bg-emerald-900/10 transition-colors">
+                                    <div class="flex-shrink-0 w-3 h-3 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mt-3"><i class="fas fa-check text-emerald-600 dark:text-emerald-400 text-[10px]"></i></div>
+                                    <span class="leading-snug">Төсвийн гүйцэтгэл, бүртгэл</span>
+                                </li>
+                                <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl hover:bg-emerald-50 dark:hover:bg-emerald-900/10 transition-colors">
+                                    <div class="flex-shrink-0 w-3 h-3 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mt-3"><i class="fas fa-check text-emerald-600 dark:text-emerald-400 text-[10px]"></i></div>
+                                    <span class="leading-snug">Санхүүгийн тайлан гаргах</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="group relative flex flex-col items-center text-center">
+                        <div class="lg:hidden absolute top-12 left-1/2 h-full w-0.5 border-l-2 border-dashed border-slate-200 dark:border-slate-800 -z-10"></div>
+
+                        <div class="relative w-24 h-24 rounded-full bg-white dark:bg-slate-900 border-4 border-slate-50 dark:border-slate-950 shadow-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-sky-100 dark:group-hover:border-sky-900/50 transition-all duration-300 z-10">
+                            <div class="absolute inset-0 rounded-full bg-sky-50 dark:bg-sky-900/20">
+                                <img class="rounded-full" src="./assets/role/lmsw_3.jpg" alt="">
+                            </div>
+
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-900 w-full rounded-2xl p-6 shadow-md border border-slate-100 dark:border-slate-800 group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 relative z-20">
+                            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-sky-500 rounded-full border-4 border-white dark:border-slate-900"></div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Багш</h3>
+                            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-4">Сургалт & Үнэлгээ</p>
+                            <ul class="space-y-3 text-sm text-left text-slate-600 dark:text-slate-300 w-full">
+                                <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl hover:bg-sky-50 dark:hover:bg-sky-900/10 transition-colors">
+                                    <div class="flex-shrink-0 w-3 h-3 rounded-full bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center mt-3"><i class="fas fa-check text-sky-600 dark:text-sky-400 text-[10px]"></i></div>
+                                    <span class="leading-snug">Контент оруулах, хичээл заах</span>
+                                </li>
+                                <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl hover:bg-sky-50 dark:hover:bg-sky-900/10 transition-colors">
+                                    <div class="flex-shrink-0 w-3 h-3 rounded-full bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center mt-3"><i class="fas fa-check text-sky-600 dark:text-sky-400 text-[10px]"></i></div>
+                                    <span class="leading-snug">Ирц, дүн, даалгавар бүртгэх</span>
+                                </li>
+                                <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl hover:bg-sky-50 dark:hover:bg-sky-900/10 transition-colors">
+                                    <div class="flex-shrink-0 w-3 h-3 rounded-full bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center mt-3"><i class="fas fa-check text-sky-600 dark:text-sky-400 text-[10px]"></i></div>
+                                    <span class="leading-snug">Тест шалгалт авах</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="group relative flex flex-col items-center text-center">
+                        <div class="hidden lg:block absolute top-12 left-1/2 w-full h-0.5 border-t-2 border-dashed border-slate-200 dark:border-slate-800 -z-10"></div>
+                        <div class="lg:hidden absolute top-12 left-1/2 h-full w-0.5 border-l-2 border-dashed border-slate-200 dark:border-slate-800 -z-10"></div>
+
+                        <div class="relative w-24 h-24 rounded-full bg-white dark:bg-slate-900 border-4 border-slate-50 dark:border-slate-950 shadow-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-amber-100 dark:group-hover:border-amber-900/50 transition-all duration-300 z-10">
+                            <div class="absolute inset-0 rounded-full bg-amber-50 dark:bg-amber-900/20">
+                                <img class="rounded-full" src="./assets/role/lmsw_4.jpg" alt="">
+                            </div>
+
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-900 w-full rounded-2xl p-6 shadow-md border border-slate-100 dark:border-slate-800 group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 relative z-20">
+                            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-amber-500 rounded-full border-4 border-white dark:border-slate-900"></div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Сурагч</h3>
+                            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-4">Суралцагч</p>
+                            <ul class="space-y-3 text-sm text-left text-slate-600 dark:text-slate-300 w-full">
+                                <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl hover:bg-amber-50 dark:hover:bg-amber-900/10 transition-colors">
+                                    <div class="flex-shrink-0 w-3 h-3 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center mt-3"><i class="fas fa-check text-amber-600 dark:text-amber-400 text-[10px]"></i></div>
+                                    <span class="leading-snug">Хичээл үзэх, даалгавар илгээх</span>
+                                </li>
+                                <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl hover:bg-amber-50 dark:hover:bg-amber-900/10 transition-colors">
+                                    <div class="flex-shrink-0 w-3 h-3 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center mt-3"><i class="fas fa-check text-amber-600 dark:text-amber-400 text-[10px]"></i></div>
+                                    <span class="leading-snug">Онлайн тест өгөх</span>
+                                </li>
+                                <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl hover:bg-amber-50 dark:hover:bg-amber-900/10 transition-colors">
+                                    <div class="flex-shrink-0 w-3 h-3 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center mt-3"><i class="fas fa-check text-amber-600 dark:text-amber-400 text-[10px]"></i></div>
+                                    <span class="leading-snug">Ирц, дүнгийн мэдээлэл харах</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="group relative flex flex-col items-center text-center">
+                        <div class="hidden lg:block absolute top-12 left-1/2 w-full h-0.5 border-t-2 border-dashed border-slate-200 dark:border-slate-800 -z-10"></div>
+                        <div class="lg:hidden absolute top-12 left-1/2 h-full w-0.5 border-l-2 border-dashed border-slate-200 dark:border-slate-800 -z-10"></div>
+
+                        <div class="relative w-24 h-24 rounded-full bg-white dark:bg-slate-900 border-4 border-slate-50 dark:border-slate-950 shadow-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-rose-100 dark:group-hover:border-rose-900/50 transition-all duration-300 z-10">
+                            <div class="absolute inset-0 rounded-full bg-rose-50 dark:bg-rose-900/20">
+                                <img class="rounded-full" src="./assets/role/lmsw_5.jpg" alt="">
+                            </div>
+
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-900 w-full rounded-2xl p-6 shadow-md border border-slate-100 dark:border-slate-800 group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 relative z-20">
+                            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-rose-500 rounded-full border-4 border-white dark:border-slate-900"></div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Эцэг эх</h3>
+                            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-4">Хяналт & Харилцаа</p>
+                            <ul class="space-y-3 text-sm text-left text-slate-600 dark:text-slate-300 w-full">
+                                <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl hover:bg-rose-50 dark:hover:bg-rose-900/10 transition-colors">
+                                    <div class="flex-shrink-0 w-3 h-3 rounded-full bg-rose-100 dark:bg-rose-900/30 flex items-center justify-center mt-3"><i class="fas fa-check text-rose-600 dark:text-rose-400 text-[10px]"></i></div>
+                                    <span class="leading-snug">Хүүхдийн сурлага, ирц хянах</span>
+                                </li>
+                                <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl hover:bg-rose-50 dark:hover:bg-rose-900/10 transition-colors">
+                                    <div class="flex-shrink-0 w-3 h-3 rounded-full bg-rose-100 dark:bg-rose-900/30 flex items-center justify-center mt-3"><i class="fas fa-check text-rose-600 dark:text-rose-400 text-[10px]"></i></div>
+                                    <span class="leading-snug">Төлбөр төлөх, мэдээлэл авах</span>
+                                </li>
+                                <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl hover:bg-rose-50 dark:hover:bg-rose-900/10 transition-colors">
+                                    <div class="flex-shrink-0 w-3 h-3 rounded-full bg-rose-100 dark:bg-rose-900/30 flex items-center justify-center mt-3"><i class="fas fa-check text-rose-600 dark:text-rose-400 text-[10px]"></i></div>
+                                    <span class="leading-snug">Багш нартай харилцах</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="group relative flex flex-col items-center text-center">
+                        <div class="hidden lg:block absolute top-12 left-1/2 w-full h-0.5 border-t-2 border-dashed border-slate-200 dark:border-slate-800 -z-10"></div>
+                        <div class="lg:hidden absolute top-12 left-1/2 h-full w-0.5 border-l-2 border-dashed border-slate-200 dark:border-slate-800 -z-10"></div>
+
+                        <div class="relative w-24 h-24 rounded-full bg-white dark:bg-slate-900 border-4 border-slate-50 dark:border-slate-950 shadow-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-lime-100 dark:group-hover:border-lime-900/50 transition-all duration-300 z-10">
+                            <div class="absolute inset-0 rounded-full bg-lime-50 dark:bg-lime-900/20">
+                                <img class="rounded-full" src="./assets/role/lmsw_8.jpg" alt="">
+                            </div>
+
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-900 w-full rounded-2xl p-6 shadow-md border border-slate-100 dark:border-slate-800 group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 relative z-20">
+                            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-lime-500 rounded-full border-4 border-white dark:border-slate-900"></div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Тогооч</h3>
+                            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-4">Хоол үйлдвэрлэл</p>
+                            <ul class="space-y-3 text-sm text-left text-slate-600 dark:text-slate-300 w-full">
+                                <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl hover:bg-lime-50 dark:hover:bg-lime-900/10 transition-colors">
+                                    <div class="flex-shrink-0 w-3 h-3 rounded-full bg-lime-100 dark:bg-lime-900/30 flex items-center justify-center mt-3"><i class="fas fa-check text-lime-600 dark:text-lime-400 text-[10px]"></i></div>
+                                    <span class="leading-snug">Цэс төлөвлөх, материал захиалах</span>
+                                </li>
+                                <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl hover:bg-lime-50 dark:hover:bg-lime-900/10 transition-colors">
+                                    <div class="flex-shrink-0 w-3 h-3 rounded-full bg-lime-100 dark:bg-lime-900/30 flex items-center justify-center mt-3"><i class="fas fa-check text-lime-600 dark:text-lime-400 text-[10px]"></i></div>
+                                    <span class="leading-snug">Хоол бэлтгэх, эрүүл ахуй</span>
+                                </li>
+                                <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl hover:bg-lime-50 dark:hover:bg-lime-900/10 transition-colors">
+                                    <div class="flex-shrink-0 w-3 h-3 rounded-full bg-lime-100 dark:bg-lime-900/30 flex items-center justify-center mt-3"><i class="fas fa-check text-lime-600 dark:text-lime-400 text-[10px]"></i></div>
+                                    <span class="leading-snug">Хоолны тооцоо, тайлан гаргах</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="group relative flex flex-col items-center text-center">
+                        <div class="relative w-24 h-24 rounded-full bg-white dark:bg-slate-900 border-4 border-slate-50 dark:border-slate-950 shadow-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-slate-200 dark:group-hover:border-slate-700 transition-all duration-300 z-10">
+                            <div class="absolute inset-0 rounded-full bg-slate-100 dark:bg-slate-800">
+                                <img class="rounded-full" src="./assets/role/lmsw_9.jpg" alt="">
+                            </div>
+
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-900 w-full rounded-2xl p-6 shadow-md border border-slate-100 dark:border-slate-800 group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 relative z-20">
+                            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-slate-500 rounded-full border-4 border-white dark:border-slate-900"></div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Жолооч</h3>
+                            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-4">Тээвэр үйлчилгээ</p>
+                            <ul class="space-y-3 text-sm text-left text-slate-600 dark:text-slate-300 w-full">
+                                <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+                                    <div class="flex-shrink-0 w-3 h-3 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center mt-3"><i class="fas fa-check text-slate-600 dark:text-slate-400 text-[10px]"></i></div>
+                                    <span class="leading-snug">Сурагчдын тээвэрлэлт, аюулгүй байдал</span>
+                                </li>
+                                <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+                                    <div class="flex-shrink-0 w-3 h-3 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center mt-3"><i class="fas fa-check text-slate-600 dark:text-slate-400 text-[10px]"></i></div>
+                                    <span class="leading-snug">Замын хуваарь, ирц бүртгэл</span>
+                                </li>
+                                <li class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+                                    <div class="flex-shrink-0 w-3 h-3 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center mt-3"><i class="fas fa-check text-slate-600 dark:text-slate-400 text-[10px]"></i></div>
+                                    <span class="leading-snug">Шатахууны тайлан, машин бүртгэл</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+                </div>
+        </section>
+
+        <!-- COMPONENT: APP PROMO -->
+        <section id="app" class="py-24 bg-white dark:bg-slate-900 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+                    <div class="order-2 lg:order-1 relative">
+                        <div class="relative mx-auto border-slate-800 dark:border-slate-800 bg-slate-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl">
+                            <div class="h-[32px] w-[3px] bg-slate-800 absolute -left-[17px] top-[72px] rounded-l-lg"></div>
+                            <div class="h-[46px] w-[3px] bg-slate-800 absolute -left-[17px] top-[124px] rounded-l-lg"></div>
+                            <div class="h-[46px] w-[3px] bg-slate-800 absolute -left-[17px] top-[178px] rounded-l-lg"></div>
+                            <div class="h-[64px] w-[3px] bg-slate-800 absolute -right-[17px] top-[142px] rounded-r-lg"></div>
+                            <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-slate-800 relative">
+                                <div id="app-screens" class="flex h-full transition-transform duration-500">
+                                    <img src="./assets/Loading.png" alt="Ачаалж байна" class="w-full h-full object-cover shrink-0">
+                                    <img src="./assets/Login.png" alt="Нэвтрэх" class="w-full h-full object-cover shrink-0">
+                                    <img src="./assets/Home.png" alt="Нүүр хуудас" class="w-full h-full object-cover shrink-0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl -z-10"></div>
+                    </div>
+
+                    <div class="order-1 lg:order-2">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-slate-900 dark:text-white">
+                            Суралцах үйл явц <br> зөвхөн ширээний ард өрнөхгүй.
+                        </h2>
+                        <p class="text-lg text-slate-600 dark:text-slate-400 mb-8">
+                            Манай iOS болон Android аппликейшнээр суралцах үйл явц хялбар болж, бүх мэдээллийг нэг дор төвлөрүүлдэг тул сурагчид өөрийн амьдрал, хичээлийн явцыг хялбархан хянах, цаг хугацаагаа зөв төлөвлөх, шаардлагатай мэдээг цаг алдалгүй авах боломжтой болдог.
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center gap-3">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span class="text-slate-700 dark:text-slate-300">Бүх эрх Апплейкшнээс хандах боломжтой</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span class="text-slate-700 dark:text-slate-300">Бүх төрлийн мэдэгдэл</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span class="text-slate-700 dark:text-slate-300">Хүн бүхэнд тохирсон ойлгомжтой интерфэйс</span>
+                                </li>
+                            </ul>
+
+                            <div class="flex flex-wrap gap-4">
+                                <button class="bg-slate-900 dark:bg-white dark:text-slate-900 text-white px-6 py-3 rounded-lg flex items-center gap-2 hover:opacity-90 transition shadow-lg">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.74 1.18 0 2.21-.84 3.67-.84 1.52 0 2.98.63 3.71 1.74-3.3 1.97-2.7 6.57.54 7.85-.32.81-.76 1.8-1.35 2.61-1.14 1.6-2.33 1.69-3.65.87zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
                         <div class="text-left">
                             <div class="text-[10px] leading-none opacity-80">Татах</div>
                             <div class="text-sm font-bold leading-none">App Store</div>
                         </div>
                     </button>
-                                    <button class="bg-slate-900 dark:bg-white dark:text-slate-900 text-white px-6 py-3 rounded-lg flex items-center gap-2 hover:opacity-90 transition shadow-lg">
+                                <button class="bg-slate-900 dark:bg-white dark:text-slate-900 text-white px-6 py-3 rounded-lg flex items-center gap-2 hover:opacity-90 transition shadow-lg">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" /></svg>
                         <div class="text-left">
                             <div class="text-[10px] leading-none opacity-80">Татах</div>
                             <div class="text-sm font-bold leading-none">Google Play</div>
                         </div>
                     </button>
-                                </div>
-                        </div>
+                            </div>
                     </div>
                 </div>
-            </section>
-
-            <!-- COMPONENT: FAQ -->
-            <section id="faq" class="py-24">
-                <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 class="text-3xl font-bold text-center mb-12">Тусламж</h2>
-
-                    <div class="space-y-4">
-                        <!-- FAQ Item 1 -->
-                        <details class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden transition-all duration-300 open:ring-2 open:ring-primary-500/20">
-                            <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-medium text-lg">
-                                <span>Холбоо барих</span>
-                                <span class="transition group-open:rotate-180">
-                                <svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </span>
-                            </summary>
-                            <div class="px-6 pb-6 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
-                                We charge per active user per month. An "active user" is anyone who logs in during the billing period. If they don't log in, you don't pay.
-                            </div>
-                        </details>
-
-                        <!-- FAQ Item 2 -->
-                        <details class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden transition-all duration-300 open:ring-2 open:ring-primary-500/20">
-                            <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-medium text-lg">
-                                <span>Систем ашиглах гарын авлага</span>
-                                <span class="transition group-open:rotate-180">
-                                <svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </span>
-                            </summary>
-                            <div class="px-6 pb-6 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
-                                Yes! We support SCORM 1.2 and 2004, as well as xAPI (Tin Can). You can simply drag and drop your zip files into the course builder.
-                            </div>
-                        </details>
-
-                    </div>
-                </div>
-            </section>
+            </div>
+        </section>
     </main>
 
     <!-- COMPONENT: FOOTER -->
-    <footer class="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-12">
+    <footer class="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-12 text-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
 
-                <div class="text-center md:text-left space-y-2">
-                    <div class="flex items-center justify-center md:justify-start gap-2">
-                        <img class="w-24 h-24" src="./assets/logo (2).png" alt="">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+
+                <div class="flex flex-col items-start space-y-4">
+                    <div class="flex items-center gap-2">
+                        <img class="w-16 h-16 object-contain" src="./assets/logo (2).png" alt="Amjilt LMS Logo">
                     </div>
-                    <p class="text-sm text-slate-500 dark:text-slate-400">
-                        © 2024 Amjilt LMS. Бүх эрх хуулиар хамгаалагдсан.
+                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed">
+                        Сургалтын үйл ажиллагааг хялбарчлах, багш сурагчийн харилцааг сайжруулах нэгдсэн систем.
                     </p>
                 </div>
 
-                <div class="flex items-center gap-6">
-                    <a href="#" class="text-slate-400 hover:text-primary-600 transition-colors">
-                        <span class="sr-only">Facebook</span>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>
-                    </a>
-                    <a href="#" class="text-slate-400 hover:text-primary-600 transition-colors">
-                        <span class="sr-only">Instagram</span>
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke-width="2"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2"></line></svg>
-                    </a>
-                    <a href="#" class="text-slate-400 hover:text-primary-600 transition-colors">
-                        <span class="sr-only">Twitter</span>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path></svg>
-                    </a>
+                <div class="space-y-4">
+                    <h3 class="font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">Холбоо барих</h3>
+                    <ul class="space-y-3 text-slate-500 dark:text-slate-400">
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-primary-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            <a href="mailto:info@amjilt.com" class="hover:text-primary-600 transition-colors">info@amjilt.com</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-primary-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                            <a href="tel:+9767711-6060" class="hover:text-primary-600 transition-colors">+976 7700-6060</a>
+                        </li>
+                    </ul>
                 </div>
 
+                <div class="space-y-4 md:text-right">
+                    <h3 class="font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">Биднийг дагаарай</h3>
+                    <div class="flex md:justify-end items-center gap-4">
+                        <a href="#" class="p-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full text-slate-400 hover:text-primary-600 hover:border-primary-600 transition-all shadow-sm">
+                            <span class="sr-only">Facebook</span>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>
+                        </a>
+                        <a href="#" class="p-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full text-slate-400 hover:text-pink-600 hover:border-pink-600 transition-all shadow-sm">
+                            <span class="sr-only">Instagram</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke-width="2"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2"></line></svg>
+                        </a>
+                        <a href="#" class="p-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full text-slate-400 hover:text-blue-400 hover:border-blue-400 transition-all shadow-sm">
+                            <span class="sr-only">Twitter</span>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-200 dark:border-slate-800 pt-8 mt-8 flex flex-col md:flex-row justify-center items-center gap-4 text-slate-400 dark:text-slate-500">
+                <p>© 2024 Amjilt LMS. Бүх эрх хуулиар хамгаалагдсан.</p>
             </div>
         </div>
     </footer>
+
+    <button id="back-to-top" title="Дээш гүйлгэх" class="fixed bottom-10 right-10 z-50 w-14 h-14 flex items-center justify-center bg-primary-600 text-white rounded-full shadow-xl shadow-primary-600/40 transition-all duration-300 transform translate-y-20 opacity-0 invisible hover:bg-primary-700 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-primary-500/30">
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+</button>
 
     <!-- COMPONENT: LOGIN MODAL -->
     <dialog id="login-modal" class="rounded-3xl shadow-2xl backdrop:bg-slate-900/60 backdrop:backdrop-blur-sm bg-transparent p-0 overflow-hidden open:animate-fade-in transition-all duration-300">
@@ -835,9 +917,5 @@
     <script src="./js/main.js">
     </script>
 </body>
-
-</html>
-
-</html>
 
 </html>

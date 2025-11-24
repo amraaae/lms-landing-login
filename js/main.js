@@ -228,6 +228,30 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 });
 
+// Back to Top Button Logic
+const backToTopBtn = document.getElementById('back-to-top');
+
+// Хуудсыг гүйлгэх үед товчийг харуулах/нуух
+window.addEventListener('scroll', () => {
+    // Хэрэв 300px-ээс доош гүйлгэсэн бол товчийг харуулна
+    if (window.scrollY > 300) {
+        backToTopBtn.classList.remove('opacity-0', 'invisible', 'translate-y-20');
+        backToTopBtn.classList.add('opacity-100', 'visible', 'translate-y-0');
+    } else {
+        // Дээшээ гарсан үед товчийг нууна
+        backToTopBtn.classList.add('opacity-0', 'invisible', 'translate-y-20');
+        backToTopBtn.classList.remove('opacity-100', 'visible', 'translate-y-0');
+    }
+});
+
+// Товч дээр дарахад дээш гүйлгэх
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Зөөлөн гүйлгэх эффект
+    });
+});
+
 // Force refresh ScrollTrigger after all assets (images) are loaded
 window.addEventListener("load", () => {
     ScrollTrigger.refresh();
